@@ -5,11 +5,11 @@ bunx lint-staged
 
 # Check linting exit code
 if [ $? -eq 0 ]; then
-    echo "------------------------------------"
+  echo "------------------------------------"
   echo "Mr. Lint doesn't give any bad report yet. 😎"
   sleep 2
   # Build the web files
-  echo "Now im gonna build the web files for you... 😎"
+  echo "Now I'm gonna build the web files for you... 😎"
   sleep 1 
   echo "Building...🏗️"
   bun run build
