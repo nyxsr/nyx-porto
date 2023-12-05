@@ -1,4 +1,22 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-exec < /dev/tty && npx cz --hook || true
+exec < /dev/tty && bunx cz --hook || true
+
+bunx lint-staged
+
+# Check linting exit code
+if [ $? -eq 0 ]; then
+    echo "------------------------------------"
+  echo "Mr. Lint doesn't give any bad report yet. 😎"
+  sleep 2
+  # Build the web files
+  echo "Now im gonna build the web files for you... 😎"
+  sleep 1 
+  echo "Building...🏗️"
+  bun run build
+  
+else
+  echo "Mr. Lint found some issues. Please fix them before building. 😱"
+  exit 1
+fi
