@@ -1,8 +1,6 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-exec < /dev/tty && bunx cz --hook || true
-
 bunx lint-staged
 
 # Check linting exit code
@@ -20,3 +18,5 @@ else
   echo "Mr. Lint found some issues. Please fix them before building. 😱"
   exit 1
 fi
+
+exec < /dev/tty && bunx cz --hook || true
